@@ -20,6 +20,7 @@ module.exports = (app) => {
       s3: s3,
       // acl: "public-read",
       //bucket: process.env.AWS_BUCKET_NAME,
+      overwrite: true,
       bucket: function (req, file, cb) {
         console.log(" bucketName is >> ", file, req.body.bucketname);
         cb(null, req.body.bucketname);
@@ -62,5 +63,4 @@ module.exports = (app) => {
     console.log(req.files);
     res.send("Successfully uploaded " + req + " files!");
   });
-
-  };
+};

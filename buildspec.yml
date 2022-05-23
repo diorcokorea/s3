@@ -6,7 +6,7 @@ phases:
       docker: latest
     commands:
       - aws --version
-      - $(aws ecr get-login --no-include-email --region ap-northeast-2)
+      - $(aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin 680023014864.dkr.ecr.ap-northeast-2.amazonaws.com)
       - npm install yarn
   build:
     commands:
